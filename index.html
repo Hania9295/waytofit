@@ -1007,6 +1007,7 @@ select.pill-select.neutral{
   align-items:center;
   gap:10px;
   justify-content:center;
+  flex-wrap:wrap;
   box-shadow:0 2px 10px rgba(0,0,0,.18);
 }
 .wtf-nav-brand{
@@ -1039,6 +1040,34 @@ select.pill-select.neutral{
 }
 .wtf-page{display:none;}
 .wtf-page.active{display:block;}
+
+/* ---- Menu déroulant mobile ---- */
+.wtf-tab-select{
+  display:none;
+  width:100%;
+  max-width:340px;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  border:1.5px solid rgba(255,255,255,.22);
+  font-weight:700;
+  font-size:13.5px;
+  padding:10px 14px;
+  border-radius:999px;
+  -webkit-appearance:none;
+  appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%23ffffff'/></svg>");
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+}
+.wtf-tab-select option{background:var(--ink);color:#fff;}
+
+@media (max-width:560px){
+  .wtf-nav{flex-direction:column;align-items:stretch;gap:8px;padding:10px 14px;}
+  .wtf-nav-brand{text-align:center;margin-right:0;}
+  .wtf-tabs{display:none;}
+  .wtf-tab-select{display:block;margin:0 auto;}
+}
+
 @media print{
   .wtf-nav{display:none !important;}
 }
@@ -1086,6 +1115,11 @@ select.pill-select.neutral{
     <button type="button" class="wtf-tab" data-page="eat" onclick="wtfShowPage('eat')">Diète (Way To Eat)</button>
     <button type="button" class="wtf-tab" data-page="move" onclick="wtfShowPage('move')">Programme (Way To Move)</button>
   </div>
+  <select class="wtf-tab-select" onchange="wtfShowPage(this.value)" aria-label="Navigation">
+    <option value="home">Accueil</option>
+    <option value="eat">Diète (Way To Eat)</option>
+    <option value="move">Programme (Way To Move)</option>
+  </select>
 </nav>
 
 <div id="page-home" class="wtf-page active">
@@ -1818,6 +1852,8 @@ function wtfShowPage(name){
   document.querySelectorAll('.wtf-tab').forEach(function(t){
     t.classList.toggle('active', t.getAttribute('data-page') === name);
   });
+  var sel = document.querySelector('.wtf-tab-select');
+  if(sel) sel.value = name;
   window.scrollTo(0, 0);
 }
 
