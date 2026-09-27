@@ -946,6 +946,27 @@ select.pill-select.neutral{
   text-align:center;
 }
 .series-label{font-size:9.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-left:6px;align-self:center;}
+.bloc-repos-field{
+  font-size:12px;
+  font-weight:700;
+  color:var(--ink);
+  background:#fff;
+  padding:6px 11px;
+  border-radius:999px;
+  min-width:40px;
+  text-align:center;
+}
+.bloc-repos-label{font-size:9.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-left:6px;align-self:center;}
+.wtf-hidden{display:none !important;}
+.bloc-format-hint{
+  font-size:11.5px;
+  font-style:italic;
+  color:var(--muted);
+  background:#fff;
+  border-radius:10px;
+  padding:7px 11px;
+  margin:-2px 0 10px;
+}
 
 /* ===== EXERCICE ROW ===== */
 .exercice-row{
@@ -1189,26 +1210,45 @@ MACROS protéines / glucides / lipides : ...
 CONSTRUCTION DES REPAS — RÈGLES DE PRIORITÉ
 Applique cette hiérarchie, dans cet ordre, pour composer chaque repas :
 1. Respecte impérativement les allergies, intolérances et aliments exclus indiqués plus haut : ne les utilise jamais, même en petite quantité.
-2. Intègre autant que possible les aliments appréciés indiqués dans "Préférences / contraintes" — mais ne les répartis pas au hasard dans la journée : un aliment apprécié doit rester cohérent avec le repas et le moment où il est proposé (ex. si l'élève aime le riz, ça ne veut pas dire qu'il faut lui en mettre au petit-déjeuner : garde-le pour un déjeuner ou un dîner).
+2. Les aliments indiqués comme "préférés" dans "Préférences / contraintes" sont des préférences, pas des obligations : ils servent à personnaliser la diète, mais ne doivent jamais être placés artificiellement dans tous les repas ni faire primer sur la cohérence du repas et du moment de la journée (ex. si l'élève aime le riz ou les pommes de terre, ça ne veut pas dire qu'il faut lui en proposer au petit-déjeuner : garde ces aliments pour un repas où ils ont du sens).
 3. Complète avec des aliments healthy/sportifs courants (œufs, volaille, poisson, flocons d'avoine, riz, patate douce, légumes, fruits, whey, oléagineux...) même s'ils ne sont pas cités par l'élève, tant qu'ils ne sont ni exclus ni non appréciés.
 4. Adapte le choix des aliments au type de repas — petit-déjeuner, déjeuner, dîner, collation n'obéissent pas aux mêmes logiques (voir précisions ci-dessous pour petit-déjeuner et collations).
-5. Adapte les collations selon qu'il s'agit d'un jour d'entraînement ou d'un jour de repos (voir ci-dessous).
-6. Garde toujours un équilibre cohérent protéines / glucides / lipides au sein de chaque repas.
-7. Catégorise les aliments selon leur réalité nutritionnelle, pas selon leur apparence :
-   - Les légumineuses (petits pois, lentilles, pois chiches, haricots secs/rouges/blancs, fèves...) contiennent une quantité significative de glucides : ne les classe jamais comme "Légumes", et encore moins comme "Légume à volonté". Place-les dans la catégorie Glucides/Féculents avec une portion définie, comme n'importe quel féculent.
-   - Parmi les vrais légumes, la teneur en glucides varie d'un légume à l'autre : ne les traite pas comme un bloc homogène "à volonté". Évalue la teneur réelle en glucides de chaque légume proposé et ajuste la portion en conséquence — les légumes très pauvres en glucides (courgette, brocoli, épinards, salade, concombre...) peuvent être généreux ou à volonté, les légumes à teneur modérée (tomate, poivron, chou-fleur...) restent en quantité raisonnable, et les légumes les plus riches en glucides (carotte, betterave, courge, panais, maïs, oignon en grande quantité...) doivent être comptés avec une portion définie, jamais "à volonté".
-   - Ne propose jamais "haricots" de façon générique : précise toujours lequel (haricots verts, haricots rouges, haricots blancs, flageolets...), car leur composition nutritionnelle est totalement différente. Les haricots verts sont un légume pauvre en glucides. Les haricots rouges, blancs, flageolets et autres haricots secs sont des légumineuses riches en glucides et se classent en Glucides/Féculents avec une portion définie, au même titre que les petits pois et les lentilles.
+5. Adapte les collations selon qu'il s'agit d'un jour d'entraînement ou d'un jour de repos, et selon leur proximité avec l'entraînement (voir "Répartition des apports en fonction de l'entraînement" ci-dessous).
+6. Garde toujours un équilibre cohérent protéines / glucides / lipides au sein de chaque repas, et ne cumule pas inutilement les sources de lipides (voir "Gestion des sources de lipides" ci-dessous).
+7. Catégorise les aliments selon leur réalité nutritionnelle, pas selon leur apparence : ne confonds jamais légumes et légumineuses (voir "Légumes et légumineuses" ci-dessous).
+8. Quand un repas propose plusieurs options, chaque option doit être une véritable équivalence nutritionnelle, pas juste une alternative de goût (voir "Cohérence des équivalences" ci-dessous).
 Un aliment apprécié sert à personnaliser la diète, pas à la limiter : construis des repas réalistes et variés, comme le ferait un coach, plutôt que d'assembler mécaniquement les aliments cités par l'élève.
 
-Petit-déjeuner — propose un type cohérent parmi les suivants (varie si plusieurs petits-déjeuners sont à générer) :
-- Salé : protéines (œufs, blancs d'œufs, blanc de poulet, dinde...) + glucides (pain complet, muffin anglais/complet...) + lipides (avocat, amandes, beurre de cacahuète...). Exemple : muffin complet + œufs ou dinde + avocat.
-- Bowl cake : flocons d'avoine + whey ISO + fruits en option + beurre de cacahuète ou amandes comme lipides. Si tu proposes cette option, ajoute une recette rapide du bowl cake dans "Consigne".
-- Pancakes healthy : flocons d'avoine + whey ISO + fruits en option + beurre de cacahuète en accompagnement. Si tu proposes cette option, ajoute une recette rapide des pancakes dans "Consigne".
+Répartition des apports en fonction de l'entraînement
+Le total calorique quotidien reste la référence principale, mais la répartition des glucides dans la journée doit être pensée en fonction de l'heure de l'entraînement (si elle est connue) : concentre davantage les glucides autour du repas pré-entraînement et post-entraînement ; les repas et surtout les collations les plus éloignés de l'entraînement doivent généralement être moins copieux en glucides.
+- Si l'entraînement a lieu plus tard dans la journée : garde un vrai petit-déjeuner suffisamment rassasiant ; les repas/collations éloignés de l'entraînement peuvent être plus légers ; augmente progressivement les apports (notamment glucidiques) en se rapprochant de l'entraînement ; privilégie une bonne disponibilité énergétique sur le repas pré-entraînement et une récupération adaptée sur le repas post-entraînement.
+- Si l'entraînement a lieu le matin : le petit-déjeuner pré-entraînement doit être suffisamment consistant pour préparer la séance ; le repas post-entraînement doit assurer la récupération ; les glucides peuvent ensuite être réduits sur les repas plus éloignés de l'entraînement pour respecter le total prévu sur la journée.
+Il ne s'agit pas de considérer que manger des glucides le soir empêche la perte de poids (la perte de masse grasse dépend avant tout de l'équilibre énergétique global) : cette répartition sert uniquement à organiser intelligemment les apports autour de l'effort. Si l'heure d'entraînement n'est pas connue, répartis les glucides de façon équilibrée sur la journée sans cette logique de concentration.
 
-Collations — adapte selon le contexte du jour :
+Gestion des sources de lipides
+N'ajoute pas mécaniquement une source de matières grasses (huile d'olive, etc.) à chaque repas : certains aliments apportent déjà une quantité significative de lipides. Quand un repas contient déjà du saumon ou des œufs, n'ajoute pas automatiquement une source de lipides supplémentaire — tiens toujours compte de la quantité totale de lipides du repas et de la journée avant d'en ajouter une.
+
+Cohérence des équivalences
+Une équivalence alimentaire n'est jamais ajoutée uniquement pour donner du choix : chaque option/alternative proposée pour un repas doit être une véritable équivalence nutritionnelle. Quand un aliment est remplacé par un autre (ex. riz ↔ pommes de terre, riz ↔ légumineuses, poulet ↔ viande hachée, poulet ↔ saumon, flocons d'avoine ↔ autre source glucidique), recalcule les quantités pour que calories, protéines, glucides et lipides restent aussi proches que possible de l'option de référence — n'utilise jamais automatiquement le même grammage pour deux aliments différents. Changer d'option ne doit jamais faire dévier significativement le total calorique/macro prévu pour la journée : toutes les options d'un même repas doivent maintenir la journée dans une tranche cohérente.
+
+Légumes et légumineuses
+Ne confonds jamais légumes et légumineuses.
+- Légumineuses (lentilles, pois chiches, haricots rouges, haricots blancs, flageolets, petits pois, fèves...) : apportent une quantité significative de glucides, se comptabilisent toujours comme une source de Glucides/Féculents (jamais comme un légume ni "à volonté"), et peuvent remplacer ou compléter une autre source glucidique à condition d'en adapter les quantités.
+- Haricots : précise toujours lequel (haricots verts, haricots rouges, haricots blancs, flageolets...) — les haricots verts sont un légume, les autres sont des légumineuses, et leur composition nutritionnelle est totalement différente.
+- Vrais légumes : restent dans la catégorie Légumes ; la teneur en glucides varie néanmoins d'un légume à l'autre (les légumes très pauvres en glucides comme courgette, brocoli, épinards, salade, concombre peuvent être généreux ou à volonté ; les plus riches en glucides comme carotte, betterave, courge, panais, maïs, oignon en grande quantité doivent rester en portion raisonnable). N'impose pas de grammage minimum arbitraire : adapte la quantité à la faim et à la structure du repas.
+
+Petit-déjeuner
+Dans la mesure du possible, propose une alternative salée ET une alternative sucrée (sous forme d'"Option 1" et "Option 2"), équivalentes en calories et en macronutriments (voir "Cohérence des équivalences" ci-dessus) :
+- Option salée : protéines (œufs, blancs d'œufs, blanc de poulet, dinde...) + glucides (pain complet, muffin anglais/complet...) + lipides (avocat, amandes, beurre de cacahuète...). Exemple : muffin complet + œufs ou dinde + avocat.
+- Option sucrée — bowl cake : flocons d'avoine + whey ISO + fruits en option + beurre de cacahuète ou amandes comme lipides. Ajoute une recette rapide du bowl cake dans "Consigne".
+- Option sucrée — pancakes healthy : flocons d'avoine + whey ISO + fruits en option + beurre de cacahuète en accompagnement. Ajoute une recette rapide des pancakes dans "Consigne".
+Si les infos données ne permettent pas de construire une vraie équivalence pour les deux options, ne propose qu'une seule option cohérente plutôt qu'une deuxième approximative.
+
+Collations
+Adapte selon le contexte du jour :
 - Avant un entraînement : privilégie quelque chose de facile et rapide à digérer, sous forme liquide ou semi-liquide (ex. skyr + fruits rouges + beurre de cacahuète ou amandes ; flocons d'avoine en poudre + whey ISO + beurre de cacahuète ; crème de riz + whey ISO + beurre de cacahuète).
 - Jour OFF / sans entraînement : une collation plus solide est possible (ex. pain complet ou muffin complet + dinde ou blanc de poulet + crudités + avocat).
-Ces exemples de collations sont indicatifs, pas une liste fermée : varie aussi avec d'autres aliments healthy pertinents et adaptés au contexte (fromage blanc, amandes, noix, fruits frais, oléagineux, yaourt grec, etc.) plutôt que de te limiter uniquement aux exemples cités ci-dessus.
+Ces exemples sont indicatifs, pas une liste fermée : varie aussi avec d'autres aliments healthy pertinents et adaptés au contexte (fromage blanc, amandes, noix, fruits frais, oléagineux, yaourt grec, etc.) plutôt que de te limiter uniquement aux exemples cités. Respecte aussi ces associations : fromage blanc/skyr peut être associé aux flocons d'avoine, mais jamais à de la crème de riz ; quand tu utilises de la crème de riz en collation, associe-la à de la whey comme source principale de protéines.
 
 Pour chaque repas, donne :
 - un nom et un horaire indicatif
@@ -1218,6 +1258,9 @@ Pour chaque repas, donne :
 - une consigne particulière seulement si nécessaire
 
 Termine par une liste "Consignes générales" courtes (hydratation, assaisonnement, suivi du poids, évolution visuelle...), sans répéter les règles personnelles de l'élève.
+
+Contrôle final avant de répondre
+Avant de donner ta réponse, vérifie mentalement (sans écrire cette vérification dans ta réponse) : le total calorique de la journée ; la cohérence protéines/glucides/lipides ; que toutes les équivalences/options d'un même repas restent nutritionnellement proches et ne font pas dévier le total du jour ; la répartition des glucides par rapport à l'heure d'entraînement et la cohérence des repas pré/post-entraînement ; que les collations éloignées de l'entraînement ne sont pas inutilement caloriques ; que les sources de lipides ne sont pas cumulées inutilement ; que les légumineuses ne sont jamais comptées comme de simples légumes ; que les aliments préférés sont utilisés intelligemment et non systématiquement ; que les associations proposées sont réalistes et agréables à consommer ; et que toutes les quantités reposent sur des valeurs nutritionnelles moyennes standards, pas sur une marque particulière. Une diète WAY TO EAT doit rester cohérente quelle que soit l'option choisie par l'élève.
 
 Présente la réponse dans ce format EXACT, prêt à être recopié — sans mise en forme markdown (pas de **gras**, pas de titres avec #, pas de tableaux), et en gardant mot pour mot les intitulés "Exemples", "Équivalences", "Compléments", "Consigne", "REPAS", "OPTION", "RÈGLES PERSONNELLES", "CONSIGNES GÉNÉRALES" :
 
@@ -1521,21 +1564,18 @@ CONSIGNES GÉNÉRALES
     <summary>📖 Lexique des méthodes de travail</summary>
     <div class="lexique-body">
       <div class="lexique-group-title">Méthodes de travail</div>
-      <div class="lexique-item"><div class="lexique-name">Standard Sets</div><div class="lexique-desc">Séries classiques : un exercice, un nombre de séries et de répétitions, une charge éventuelle, une récupération.</div><div class="lexique-ex">Ex. Squat — 4 séries × 10 reps — récup 1min30.</div></div>
-      <div class="lexique-item"><div class="lexique-name">Superset</div><div class="lexique-desc">Deux exercices enchaînés sans récupération entre eux ; la récupération vient après les deux.</div><div class="lexique-ex">Ex. A1. Développé couché ×10 / A2. Tractions ×10 — 4 séries.</div></div>
-      <div class="lexique-item"><div class="lexique-name">Triset</div><div class="lexique-desc">Même principe que le superset, mais avec 3 exercices enchaînés avant la récupération.</div></div>
-      <div class="lexique-item"><div class="lexique-name">Giant Set</div><div class="lexique-desc">Enchaînement de 4 exercices ou plus avant de prendre une récupération.</div></div>
-      <div class="lexique-item"><div class="lexique-name">Circuit</div><div class="lexique-desc">Plusieurs exercices réalisés à la suite ; une fois tous faits, cela fait 1 tour. Répété sur un nombre de tours défini.</div><div class="lexique-ex">Ex. 10 Burpees / 15 Squats / 10 Push-ups / 20 Mountain Climbers — 4 tours.</div></div>
+      <div class="lexique-item"><div class="lexique-name">Set</div><div class="lexique-desc">Musculation : un exercice isolé, avec un temps de repos entre chaque série.</div><div class="lexique-ex">Ex. Squat — 4 séries × 10 reps — récup 1min30.</div></div>
+      <div class="lexique-item"><div class="lexique-name">Superset</div><div class="lexique-desc">Enchaînement de 2 exercices sans temps de repos entre les exercices, avec un temps de repos après l'enchaînement, à faire sur X séries.</div><div class="lexique-ex">Ex. A1. Développé couché ×10 / A2. Tractions ×10 — 4 séries.</div></div>
+      <div class="lexique-item"><div class="lexique-name">Triset</div><div class="lexique-desc">Enchaînement de 3 exercices sans temps de repos entre les exercices, avec un temps de repos après l'enchaînement, à faire sur X séries.</div></div>
+      <div class="lexique-item"><div class="lexique-name">Circuit</div><div class="lexique-desc">Enchaînement de plus de 3 exercices sans temps de repos entre les exercices, avec un temps de repos après l'enchaînement, à faire sur X séries.</div><div class="lexique-ex">Ex. 10 Burpees / 15 Squats / 10 Push-ups / 20 Mountain Climbers — 4 séries.</div></div>
       <div class="lexique-item"><div class="lexique-name">EMOM</div><div class="lexique-desc">Every Minute On the Minute : au début de chaque minute, l'athlète réalise le travail demandé — le temps restant est sa récupération. Peut alterner plusieurs exercices.</div><div class="lexique-ex">Ex. EMOM 10 min — 10 Burpees au début de chaque minute.</div></div>
       <div class="lexique-item"><div class="lexique-name">AMRAP</div><div class="lexique-desc">As Many Rounds/Reps As Possible : effectuer le maximum de tours ou répétitions dans une durée déterminée.</div><div class="lexique-ex">Ex. AMRAP 15 min — 10 Squats / 10 Push-ups / 5 Pull-ups.</div></div>
       <div class="lexique-item"><div class="lexique-name">For Time</div><div class="lexique-desc">Un volume de travail défini à l'avance, à terminer le plus rapidement possible.</div><div class="lexique-ex">Ex. 5 tours — 10 Burpees / 20 Squats / 10 Push-ups — le plus vite possible.</div></div>
       <div class="lexique-item"><div class="lexique-name">Tabata</div><div class="lexique-desc">Format d'intervalles : 20s de travail / 10s de récup × 8 = 4 min. Avec un seul exercice ou plusieurs.</div></div>
       <div class="lexique-item"><div class="lexique-name">Death By</div><div class="lexique-desc">La difficulté augmente à chaque intervalle (souvent chaque minute) jusqu'à l'échec. Indépendant de l'exercice choisi.</div><div class="lexique-ex">Ex. Death By Burpees — Min 1 : 1 / Min 2 : 2 / Min 3 : 3…</div></div>
       <div class="lexique-item"><div class="lexique-name">Add-On</div><div class="lexique-desc">Circuit cumulatif : on ajoute progressivement un exercice à chaque tour.</div><div class="lexique-ex">Ex. Tour 1 : A / Tour 2 : A+B / Tour 3 : A+B+C…</div></div>
-      <div class="lexique-item"><div class="lexique-name">Ladder</div><div class="lexique-desc">Les répétitions augmentent ou diminuent progressivement (ascendante ou descendante).</div><div class="lexique-ex">Ex. 2 → 4 → 6 → 8 → 10 reps.</div></div>
-      <div class="lexique-item"><div class="lexique-name">Pyramid</div><div class="lexique-desc">Les répétitions augmentent puis redescendent.</div><div class="lexique-ex">Ex. 2 → 4 → 6 → 8 → 6 → 4 → 2.</div></div>
-      <div class="lexique-item"><div class="lexique-name">Interval Training</div><div class="lexique-desc">Alternance travail / récupération, définie par le temps, la distance ou les répétitions.</div><div class="lexique-ex">Ex. 400m rapide / 400m récup × 10.</div></div>
-      <div class="lexique-item"><div class="lexique-name">Descending Intervals</div><div class="lexique-desc">Même principe que les intervalles, mais le volume ou la distance diminue progressivement au fil des séries.</div></div>
+      <div class="lexique-item"><div class="lexique-name">Pyramid</div><div class="lexique-desc">Les répétitions augmentent et/ou diminuent progressivement (ascendante et/ou descendante).</div><div class="lexique-ex">Ex. 2 → 4 → 6 → 8 → 6 → 4 → 2.</div></div>
+      <div class="lexique-item"><div class="lexique-name">Interval Training</div><div class="lexique-desc">Fractionné entre intensité et récupération.</div><div class="lexique-ex">Ex. 400m rapide / 400m récup × 10.</div></div>
       <div class="lexique-item"><div class="lexique-name">Max Reps</div><div class="lexique-desc">Effectuer le maximum de répétitions possible d'un exercice sur une durée ou une consigne donnée.</div></div>
       <div class="lexique-item"><div class="lexique-name">Max Distance</div><div class="lexique-desc">Parcourir la plus grande distance possible pendant une durée déterminée.</div></div>
 
@@ -1563,9 +1603,10 @@ SÉANCES / SEMAINE : [nombre]
 Voici ce que je dicte (une séance à la fois ou plusieurs à la suite) :
 [Collez ou dictez ici le contenu de la ou des séances]
 
-Formats de bloc valides (méthodes de travail — n'utilise que ces mots exacts, déduis lequel correspond à ce que je décris) : Standard Sets, Superset, Triset, Giant Set, Circuit, EMOM, AMRAP, For Time, Tabata, Death By, Add-On, Ladder, Pyramid, Interval Training, Descending Intervals, Max Reps, Max Distance.
-Un Superset, Triset ou Giant Set est UN SEUL bloc contenant plusieurs exercices — jamais un bloc par exercice.
-Pour Death By, Ladder, Add-On, Interval Training ou Descending Intervals, note les paramètres spécifiques (répétition de départ et incrément, sens de la progression, distance, temps de travail/récupération...) directement dans les champs Reps/durée, Tempo ou Charge de l'exercice, en texte libre.
+Formats de bloc valides (méthodes de travail — n'utilise que ces mots exacts, déduis lequel correspond à ce que je décris) : Set, Superset, Triset, Circuit, EMOM, AMRAP, For Time, Tabata, Death By, Add-On, Pyramid, Interval Training, Max Reps, Max Distance.
+Set = 1 exercice isolé avec repos entre chaque série. Superset = 2 exercices enchaînés sans repos entre eux, repos après l'enchaînement, sur X séries. Triset = même principe avec 3 exercices. Circuit = même principe avec plus de 3 exercices.
+Un Superset, Triset ou Circuit est UN SEUL bloc contenant plusieurs exercices — jamais un bloc par exercice.
+Pour Death By, Add-On ou Interval Training, note les paramètres spécifiques (répétition de départ et incrément, sens de la progression, distance, temps de travail/récupération...) directement dans les champs Reps/durée, Tempo ou Charge de l'exercice, en texte libre.
 
 Si je précise à quelle partie de la séance appartient ce bloc (Échauffement, Partie principale, WOD, Finisher, Retour au calme), indique-la avant le format. Sinon, ne mets rien et je considérerai que c'est la partie principale.
 
@@ -1579,7 +1620,7 @@ Puis, à la suite, restitue ma dictée dans ce format EXACT, sans mise en forme 
 SÉANCE 1 — [Nom de la séance] ([Zone entraînée])
 BLOC 1 — [Partie de séance, seulement si précisée] — [Format] — [Nombre de séries, de tours ou durée]
 - [Nom de l'exercice] : [Reps ou durée] — Repos : [...] — Tempo : [...] — Charge/RPE/RIR : [...] — Consigne : [...]
-- [Autre exercice du même bloc si Superset/Triset/Giant Set] : [Reps ou durée] — Consigne : [...]
+- [Autre exercice du même bloc si Superset/Triset/Circuit] : [Reps ou durée] — Consigne : [...]
 BLOC 2 — [Format] — [...]
 - ...
 
@@ -1651,10 +1692,9 @@ Si un point de ma dictée est ambigu ou incomplet, signale-le à la fin de ta r�
                 <option>Retour au calme</option>
               </select>
               <select class="pill-select format-select">
-                <option>Standard Sets</option>
+                <option>Set</option>
                 <option>Superset</option>
                 <option>Triset</option>
-                <option>Giant Set</option>
                 <option>Circuit</option>
                 <option>EMOM</option>
                 <option>AMRAP</option>
@@ -1662,16 +1702,17 @@ Si un point de ma dictée est ambigu ou incomplet, signale-le à la fin de ta r�
                 <option>Tabata</option>
                 <option>Death By</option>
                 <option>Add-On</option>
-                <option>Ladder</option>
                 <option>Pyramid</option>
                 <option>Interval Training</option>
-                <option>Descending Intervals</option>
                 <option>Max Reps</option>
                 <option>Max Distance</option>
               </select>
               <div class="series-field" contenteditable data-ph="4"></div>
               <span class="series-label no-print">séries</span>
+              <div class="bloc-repos-field wtf-hidden" contenteditable data-ph="1min"></div>
+              <span class="bloc-repos-label no-print wtf-hidden">repos après l'enchaînement</span>
             </div>
+            <div class="bloc-format-hint wtf-hidden"></div>
             <div class="exercices">
 
               <div class="exercice-row" data-type="exercice">
@@ -1682,7 +1723,7 @@ Si un point de ma dictée est ambigu ou incomplet, signale-le à la fin de ta r�
                 </div>
                 <div class="ex-chips">
                   <div class="chip filled" contenteditable data-ph="Reps ou durée"></div>
-                  <div class="chip opt" contenteditable data-ph="Repos"></div>
+                  <div class="chip opt repos-chip" contenteditable data-ph="Repos"></div>
                   <div class="chip opt" contenteditable data-ph="Tempo"></div>
                   <div class="chip opt" contenteditable data-ph="Charge / RPE / RIR"></div>
                 </div>
@@ -1742,10 +1783,9 @@ Si un point de ma dictée est ambigu ou incomplet, signale-le à la fin de ta r�
         <option>Retour au calme</option>
       </select>
       <select class="pill-select format-select">
-        <option>Standard Sets</option>
+        <option>Set</option>
         <option>Superset</option>
         <option>Triset</option>
-        <option>Giant Set</option>
         <option>Circuit</option>
         <option>EMOM</option>
         <option>AMRAP</option>
@@ -1753,16 +1793,17 @@ Si un point de ma dictée est ambigu ou incomplet, signale-le à la fin de ta r�
         <option>Tabata</option>
         <option>Death By</option>
         <option>Add-On</option>
-        <option>Ladder</option>
         <option>Pyramid</option>
         <option>Interval Training</option>
-        <option>Descending Intervals</option>
         <option>Max Reps</option>
         <option>Max Distance</option>
       </select>
       <div class="series-field" contenteditable data-ph="4"></div>
       <span class="series-label no-print">séries</span>
+      <div class="bloc-repos-field wtf-hidden" contenteditable data-ph="1min"></div>
+      <span class="bloc-repos-label no-print wtf-hidden">repos après l'enchaînement</span>
     </div>
+    <div class="bloc-format-hint wtf-hidden"></div>
     <div class="exercices">
       <button class="add-btn small no-print" data-add="exercice">+ Ajouter un exercice</button>
     </div>
@@ -1778,7 +1819,7 @@ Si un point de ma dictée est ambigu ou incomplet, signale-le à la fin de ta r�
     </div>
     <div class="ex-chips">
       <div class="chip filled" contenteditable data-ph="Reps ou durée"></div>
-      <div class="chip opt" contenteditable data-ph="Repos"></div>
+      <div class="chip opt repos-chip" contenteditable data-ph="Repos"></div>
       <div class="chip opt" contenteditable data-ph="Tempo"></div>
       <div class="chip opt" contenteditable data-ph="Charge / RPE / RIR"></div>
     </div>
@@ -2204,6 +2245,66 @@ function wtfGenerateFromAIEat(){
 }
 
 /* ================= WAY TO MOVE ================= */
+var WTF_CHAIN_FORMATS = ['Superset','Triset','Circuit'];
+var WTF_SOLO_FORMATS = ['Set'];
+var WTF_FORMAT_HINTS = {
+  'EMOM': 'Repos = temps restant dans la minute une fois le travail terminé.',
+  'AMRAP': 'Autant de reps que possible, sans repos intégré.',
+  'For Time': 'Pas de repos fixe : à réaliser d\u2019une traite, le plus vite possible.',
+  'Tabata': 'Repos intégré au format : 10s de récup après chaque 20s de travail.',
+  'Death By': 'Repos = temps restant dans l\u2019intervalle.',
+  'Add-On': 'Pas de repos fixe entre les tours : le volume s\u2019ajoute progressivement à chaque tour.',
+  'Pyramid': 'Temps de repos facultatif, à définir par le coach.',
+  'Interval Training': 'Temps de repos facultatif, à définir par le coach.',
+  'Max Reps': 'Pas de repos fixe : effort maximal sur la durée ou la consigne donnée.',
+  'Max Distance': 'Pas de repos fixe : effort maximal sur la durée donnée.'
+};
+
+function wtfFormatGroup(format){
+  if(WTF_SOLO_FORMATS.indexOf(format) !== -1) return 'solo';
+  if(WTF_CHAIN_FORMATS.indexOf(format) !== -1) return 'chain';
+  return 'timed';
+}
+
+/* Sépare "4 séries — repos 1min" en {series:"4 séries", repos:"1min"} pour router le repos
+   dicté vers le champ "repos après l'enchaînement" des blocs Superset/Triset/Circuit. */
+function wtfSplitSeriesRepos(text){
+  text = (text || '').trim();
+  var m = text.match(/^(.*?)[—\-,]?\s*(?:repos|r[ée]cup(?:[ée]ration)?)\s*[:\-]?\s*(.+)$/i);
+  if(m && m[2]){
+    return { series: (m[1] || '').replace(/[—\-,]\s*$/, '').trim(), repos: m[2].trim() };
+  }
+  return { series: text, repos: '' };
+}
+
+function wtfApplyFormatUI(blocEl){
+  if(!blocEl) return;
+  var select = blocEl.querySelector('.format-select');
+  var group = wtfFormatGroup(select ? select.value : 'Set');
+  blocEl.querySelectorAll('.exercice-row .repos-chip').forEach(function(chip){
+    chip.classList.toggle('wtf-hidden', group !== 'solo');
+  });
+  var blocRepos = blocEl.querySelector('.bloc-repos-field');
+  var blocReposLabel = blocEl.querySelector('.bloc-repos-label');
+  var showBlocRepos = group === 'chain';
+  if(blocRepos) blocRepos.classList.toggle('wtf-hidden', !showBlocRepos);
+  if(blocReposLabel) blocReposLabel.classList.toggle('wtf-hidden', !showBlocRepos);
+
+  var hintEl = blocEl.querySelector('.bloc-format-hint');
+  if(hintEl){
+    var hint = group === 'timed' ? (WTF_FORMAT_HINTS[select ? select.value : ''] || '') : '';
+    hintEl.textContent = hint;
+    hintEl.classList.toggle('wtf-hidden', !hint);
+  }
+}
+
+document.addEventListener('change', function(e){
+  if(e.target && e.target.classList && e.target.classList.contains('format-select')){
+    wtfApplyFormatUI(e.target.closest('.bloc-card'));
+    if(window.wtfRefreshAllEmpty) wtfRefreshAllEmpty();
+  }
+});
+
 function wtfRenumberAllMove(){
   var seances = document.querySelectorAll('#seances > .seance-card');
   seances.forEach(function(s, i){
@@ -2213,6 +2314,7 @@ function wtfRenumberAllMove(){
     blocs.forEach(function(b, j){
       var bn = b.querySelector('.bloc-num .num');
       if(bn) bn.textContent = j+1;
+      wtfApplyFormatUI(b);
       var exs = b.querySelectorAll('.exercices > .exercice-row');
       exs.forEach(function(ex, k){
         var order = ex.querySelector('.ex-order');
@@ -2230,7 +2332,7 @@ function wtfRenumberAllMove(){
 
 
 function wtfMatchFormat(raw){
-  var options = ['Standard Sets','Superset','Triset','Giant Set','Circuit','EMOM','AMRAP','For Time','Tabata','Death By','Add-On','Ladder','Pyramid','Interval Training','Descending Intervals','Max Reps','Max Distance'];
+  var options = ['Set','Superset','Triset','Circuit','EMOM','AMRAP','For Time','Tabata','Death By','Add-On','Pyramid','Interval Training','Max Reps','Max Distance'];
   var target = (raw || '').toLowerCase().replace(/\s+/g, ' ').trim();
   for(var i = 0; i < options.length; i++){
     if(options[i].toLowerCase() === target) return options[i];
@@ -2239,7 +2341,7 @@ function wtfMatchFormat(raw){
   for(var j = 0; j < options.length; j++){
     if(options[j].toLowerCase().replace(/[^a-z0-9]/g, '') === compact) return options[j];
   }
-  return 'Standard Sets';
+  return 'Set';
 }
 
 
@@ -2307,7 +2409,7 @@ function wtfParseAIProgram(text){
       var partie = 'Partie principale';
       var maybePartie = parts.length ? wtfTryMatchPartie(parts[0]) : null;
       if(maybePartie){ partie = maybePartie; parts = parts.slice(1); }
-      var format = parts.length ? (parts[0] ? parts[0].trim() : 'Standard Sets') : 'Standard Sets';
+      var format = parts.length ? (parts[0] ? parts[0].trim() : 'Set') : 'Set';
       var series = parts.length > 1 ? parts.slice(1).join(' — ').trim() : '';
       currentBloc = { partie: partie, format: format, series: series, exercices: [] };
       currentSeance.blocs.push(currentBloc);
@@ -2418,9 +2520,29 @@ function wtfGenerateFromAIMove(){
       var partieEl = blocEl.querySelector('.partie-select');
       if(partieEl) partieEl.value = b.partie || 'Partie principale';
       var selectEl = blocEl.querySelector('.format-select');
-      if(selectEl) selectEl.value = wtfMatchFormat(b.format);
+      var matchedFormat = wtfMatchFormat(b.format);
+      if(selectEl) selectEl.value = matchedFormat;
       var seriesEl = blocEl.querySelector('.series-field');
-      if(seriesEl) seriesEl.textContent = b.series || '';
+      var seriesText = b.series || '';
+      var reposText = '';
+      var isChainFormat = wtfFormatGroup(matchedFormat) === 'chain';
+      if(isChainFormat){
+        var splitSR = wtfSplitSeriesRepos(seriesText);
+        seriesText = splitSR.series;
+        reposText = splitSR.repos;
+        if(!reposText){
+          // Repli : le coach a peut-être dicté le repos sur un exercice plutôt que sur la ligne
+          // du bloc (ex. "- Développé couché : 10 reps — Repos : 1min"). Pour un Superset/Triset/
+          // Circuit, ce repos est en réalité celui de l'enchaînement entier : on le récupère et
+          // on le remonte au niveau du bloc plutôt que de le laisser sur un champ caché.
+          for(var ri = 0; ri < b.exercices.length; ri++){
+            if(b.exercices[ri].repos){ reposText = b.exercices[ri].repos; break; }
+          }
+        }
+      }
+      if(seriesEl) seriesEl.textContent = seriesText;
+      var blocReposEl = blocEl.querySelector('.bloc-repos-field');
+      if(blocReposEl && reposText) blocReposEl.textContent = reposText;
 
       var exContainer = blocEl.querySelector('.exercices');
       var addExBtn = exContainer.querySelector('[data-add="exercice"]');
